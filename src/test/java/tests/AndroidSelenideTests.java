@@ -2,6 +2,7 @@ package tests;
 
 import com.codeborne.selenide.CollectionCondition;
 import io.appium.java_client.MobileBy;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -9,6 +10,7 @@ import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
+@Tag("mobile_selenide")
 public class AndroidSelenideTests extends TestBase{
 
     @Test
