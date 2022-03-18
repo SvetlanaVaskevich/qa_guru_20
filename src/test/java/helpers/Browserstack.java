@@ -1,14 +1,18 @@
 package helpers;
 
+import config.Credentials;
+import config.CredentialsConfig;
 import io.restassured.response.Response;
+import org.aeonbits.owner.ConfigFactory;
 
 import static io.restassured.RestAssured.given;
 
 public class Browserstack {
 
     public static String videoUrl(String sessionId){
+
                 return given()
-                        .auth().basic("svetlanavaskevic_XZFHI8","xyDxqpx7uwCAnnKxYiTY")
+                        .auth().basic(Credentials.config.user(), Credentials.config.key())
                         .when()
                         .get("https://api-cloud.browserstack.com/app-automate/sessions/" + sessionId +".json")
                         .then()

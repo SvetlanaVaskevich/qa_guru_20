@@ -1,9 +1,11 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import config.CredentialsConfig;
 import drivers.BrowserstackMobileDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,8 +21,9 @@ public class TestBase {
     @BeforeAll
     public static void setup(){
         addListener("AllureSelenide",new AllureSelenide());
+
         Configuration.browser = BrowserstackMobileDriver.class.getName();
-        Configuration.startMaximized = false;
+        //Configuration.startMaximized = false;
         Configuration.browserSize = null;
     }
 
@@ -37,6 +40,7 @@ public class TestBase {
         Attach.pageSource();
 
         closeWebDriver();
+
         Attach.video(sessionId);
     }
 }
